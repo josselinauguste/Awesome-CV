@@ -219,6 +219,10 @@
 \newcommand*{\honordatestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
 \newcommand*{\honorlocationstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\slshape\color{awesome} #1}}
 
+% For elements of interest
+\newcommand*{\interestnamestyle}[1]{{\fontsize{9pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
+\newcommand*{\interestdescriptionstyle}[1]{{\fontsize{9pt}{1em}\bodyfont\color{graytext} #1}}
+
 % For elements of skill
 \newcommand*{\skilltypestyle}[1]{{\fontsize{10pt}{1em}\bodyfont\bfseries\color{darktext} #1}}
 \newcommand*{\skillsetstyle}[1]{{\fontsize{9pt}{1em}\bodyfontlight\color{text} #1}}
@@ -617,6 +621,20 @@
 % Usage: \cvhonor{<position>}{<title>}{<location>}{<date>}
 \newcommand*{\cvhonor}[4]{%
   \honordatestyle{#4} & \honorpositionstyle{#1}, \honortitlestyle{#2} & \honorlocationstyle{#3} \\
+}
+
+\newenvironment{cvinterests}{%
+  \vspace{\acvSectionContentTopSkip}
+  \vspace{-2.0mm}
+  \begin{flushleft}
+    \setlength\tabcolsep{1ex}
+    \setlength{\extrarowheight}{0pt}
+  }{%
+  \end{flushleft}
+}
+% Usage: \cvinterest{<name>}{<description>}
+\newcommand*{\cvinterest}[2]{%
+  \interestnamestyle{#1} : \interestdescriptionstyle{#2} \\
 }
 
 % Define an environment for cvskill
